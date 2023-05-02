@@ -1,0 +1,13 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublishToCloudWatchLogsStatus",
+            "Effect": "Allow",
+            "Action": [
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:<your region>:<your account>:log-group:<your project>:log-stream:<your table>"
+        }
+    ]
+}
