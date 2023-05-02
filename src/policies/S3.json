@@ -1,0 +1,50 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "S3SourceTableBucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucketMultipartUploads",
+                "s3:AbortMultipartUpload",
+                "s3:ListBucket",
+                "s3:GetBucketLocation",
+                "s3:ListMultipartUploadParts"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<your bucket>"
+            ]
+        },
+        {
+            "Sid": "S3SourceTablePrefix",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "<your s3arn>/*"
+            ]
+        },
+        {
+            "Sid": "S3AthenaLogPrefix",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "<your s3arn>_athena/*"
+            ]
+        },
+        {
+            "Sid": "S3SytheticDataPrefix",
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteObject",
+                "s3:PutObject",
+                "s3:GetObject"
+            ],
+            "Resource": "<your s3arn>_synthetic/*"
+        }
+    ]
+}

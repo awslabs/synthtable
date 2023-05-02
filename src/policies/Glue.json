@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "GlueSourceTableAccess",
+            "Effect": "Allow",
+            "Action": "glue:GetTable",
+            "Resource": [
+                "arn:aws:glue:<your region>:<your account>:catalog",
+                "arn:aws:glue:<your region>:<your account>:database/<your database>",
+                "arn:aws:glue:<your region>:<your account>:table/<your database>/<your table>"
+            ]
+        },
+        {
+            "Sid": "GlueSyntheticTableAccess",
+            "Effect": "Allow",
+            "Action": [
+                "glue:CreateTable",
+                "glue:GetTable",
+                "glue:GetPartitions",
+                "glue:UpdateTable"
+            ],
+            "Resource": [
+                "arn:aws:glue:<your region>:<your account>:catalog",
+                "arn:aws:glue:<your region>:<your account>:table/<your database>/<your table>_synthetic",
+                "arn:aws:glue:<your region>:<your account>:database/<your database>"
+            ]
+        }
+    ]
+}
